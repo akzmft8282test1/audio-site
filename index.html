@@ -31,20 +31,22 @@
 
     card.innerHTML = `
       <p class="title">Video ${i}</p>
-      <video controls preload="metadata">
-        <source src="video/${i}.mp4" type="video/mp4">
-        브라우저가 비디오를 지원하지 않습니다.
-      </video>
+      <div class="video-wrapper">
+        <video controls preload="metadata">
+          <source src="video/${i}.mp4" type="video/mp4">
+          브라우저가 비디오를 지원하지 않습니다.
+        </video>
+      </div>
     `;
 
     const video = card.querySelector("video");
 
-    // 🔁 다른 영상 자동 정지
+    // 🔁 한 영상만 재생
     video.addEventListener("play", () => {
       videoElements.forEach(v => {
         if (v !== video) {
           v.pause();
-          // v.currentTime = 0; // ← 원하면 활성화
+          // v.currentTime = 0; // ← 필요하면 활성화
         }
       });
     });
