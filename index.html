@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Video Gallery</title>
+  <title>Vertical Video Gallery</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header>
-  <h1>🎬 Video Gallery</h1>
+  <h1>📱 Vertical Video Gallery</h1>
   <p>1 ~ 24</p>
 </header>
 
@@ -46,7 +46,6 @@
       videoElements.forEach(v => {
         if (v !== video) {
           v.pause();
-          // v.currentTime = 0; // ← 필요하면 활성화
         }
       });
     });
