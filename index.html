@@ -3,53 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Audio List</title>
+  <title>Video Gallery</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header>
-  <h1>🎧 Audio Gallery</h1>
+  <h1>🎬 Video Gallery</h1>
   <p>1 ~ 24</p>
 </header>
 
-<main class="container" id="audioList">
+<main class="container" id="videoList">
   <!-- JS로 자동 생성 -->
 </main>
 
 <footer>
-  <p>© 2026 My Audio Site</p>
+  <p>© 2026 My Video Site</p>
 </footer>
 
 <script>
-  const audioList = document.getElementById("audioList");
-  const audioElements = [];
+  const videoList = document.getElementById("videoList");
+  const videoElements = [];
 
   for (let i = 1; i <= 24; i++) {
     const card = document.createElement("div");
-    card.className = "audio-card";
+    card.className = "video-card";
 
     card.innerHTML = `
-      <p class="title">Track ${i}</p>
-      <audio controls preload="metadata">
-        <source src="audio/${i}.mp3" type="audio/mpeg">
-      </audio>
+      <p class="title">Video ${i}</p>
+      <video controls preload="metadata">
+        <source src="video/${i}.mp4" type="video/mp4">
+        브라우저가 비디오를 지원하지 않습니다.
+      </video>
     `;
 
-    const audio = card.querySelector("audio");
+    const video = card.querySelector("video");
 
-    // 🔁 다른 곡 자동 정지
-    audio.addEventListener("play", () => {
-      audioElements.forEach(a => {
-        if (a !== audio) {
-          a.pause();
-          //a.currentTime = 0; // ← 원하면 이 줄 삭제 (정지만)
+    // 🔁 다른 영상 자동 정지
+    video.addEventListener("play", () => {
+      videoElements.forEach(v => {
+        if (v !== video) {
+          v.pause();
+          // v.currentTime = 0; // ← 원하면 활성화
         }
       });
     });
 
-    audioElements.push(audio);
-    audioList.appendChild(card);
+    videoElements.push(video);
+    videoList.appendChild(card);
   }
 </script>
 
